@@ -84,8 +84,8 @@ app.post('/api/new-list', (request, response) => {
             return response.status(400).send(err);
         } else {
 
-            const sql = 'INSERT INTO todo (id,data) VALUES($1, $2)';
-            db.query(sql, [id,list], (err, table) => {
+            const sql = 'INSERT INTO todo (data) VALUES($1)';
+            db.query(sql, [list], (err, table) => {
                 done();
                 if (err) {
                     return response.status(400).send(err);
@@ -156,8 +156,8 @@ app.get('/api/users', (request, response) => {
 
 app.post('/api/new-user', (request, response) => {
     const login = request.body.login;
-    const firstName = request.body.firstName;
-    const secondName = request.body.secondName;
+    const firstName = 'bb';
+    const secondName = 'aa';
     const email = request.body.email;
     const password = request.body.password;
     const id = request.body.id;
